@@ -149,7 +149,7 @@ void cv_print_img(unsigned char *img, char const *window_name)
   Mat cv_img;
 
   cv_img.create(IMAGE_HEIGHT, IMAGE_WIDTH, CV_8UC1);
-	memcpy(cv_img.data, img, IMAGE_SIZE);
+  memcpy(cv_img.data, img, IMAGE_SIZE);
   namedWindow(window_name, WINDOW_AUTOSIZE);
   imshow(window_name, cv_img);
 }
@@ -574,17 +574,17 @@ void canny_edge(unsigned char *image, unsigned char *temp, unsigned char *temp_2
 **/
 int main()
 {
-	FILE            *fp = NULL;
-	FILE            *fp_result = NULL;
-	unsigned char   *image_data = NULL;
+  FILE            *fp = NULL;
+  FILE            *fp_result = NULL;
+  unsigned char   *image_data = NULL;
   unsigned char   *temp = NULL;
   unsigned char   *temp_2 = NULL;
-	int             frame_size = IMAGE_SIZE;
+  int             frame_size = IMAGE_SIZE;
 
   // Get input image and put it into array
-	fp = fopen("lena512.raw", "rb");
-	image_data = (unsigned char*) malloc (sizeof(unsigned char) * frame_size);
-	fread(image_data, sizeof(unsigned char), frame_size, fp);
+  fp = fopen("lena512.raw", "rb");
+  image_data = (unsigned char*) malloc (sizeof(unsigned char) * frame_size);
+  fread(image_data, sizeof(unsigned char), frame_size, fp);
 
 #if CV_PRINT
   char const *name_input = "Input";
@@ -611,8 +611,8 @@ int main()
   waitKey(0);
 #endif
 
-	free(image_data);
+  free(image_data);
   free(temp);
   free(temp_2);
-	fclose(fp);
+  fclose(fp);
 }
